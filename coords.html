@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<title>Coordinate Systems</title>
+<body>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+attribute vec2 vPosition;
+attribute vec3 vColor;
+varying vec4 fCol;
+
+// transform matrix from world to NDC
+uniform mat4 world2NDC_Xform;
+
+void main() {
+	gl_Position = world2NDC_Xform*vec4(vPosition, 0., 1.);
+	fCol = vec4(vColor, 1.);
+	gl_PointSize = 8.;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+varying vec4 fCol;
+void main() {
+    gl_FragColor = fCol;
+}
+</script>
+<script type="text/javascript" src="./utils.js"></script>
+<script type="text/javascript" src="./mat_vec.js"></script>
+<script type="text/javascript" src="./points.js"></script>
+
+<canvas id="gl-canvas" width="512" height="512" class = "canvas">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+<br><button type="button" id="draw_point">Draw Point</button>
+<form>
+	<label for="worldXmin">World X min:</label>
+	<input type="text" id="worldXmin" name="worldXmin">
+	<label for="worldYmin">World Y min:</label>
+	<input type="text" id="worldYmin" name="worldYmin">
+</form>
+<br>
+<form>
+	<label for="worldXmax">World X max:</label>
+	<input type="text" id="worldXmax" name="worldXmax">
+	<label for="worldYmax">World Y max:</label>
+	<input type="text" id="worldYmax" name="worldYmax">
+</form>
+<br><button type="button" id="update_world">Update World</button><br>
+Message Area<br>
+<textarea id = "myTextArea" rows = "5" cols = "40"></textarea>
+</body>
+</html>

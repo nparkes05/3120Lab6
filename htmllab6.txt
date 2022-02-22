@@ -1,0 +1,44 @@
+// Vertex Shader
+Sets up uniform variable so that a uniform variable can be passed in from the javascript
+
+//Import new script
+<script type= “text/javascript” src=”./scriptname.js”></script>
+
+//Build UI Widgets
+Use input <tag> to create input widgets which will receive the values that will be sent to the js script and displayed on the screen
+<p>
+<label for="wldXmn"> World Xmin:</label>
+<input type = "text" id = "wldXmn" name = "wldXmn">
+
+<label for="wldXmx"> World Xmax:</label>
+<input type = "text" id = "wldXmx" name = "wldXmx">
+<p>
+
+<p>
+<label for="wldYmn"> World Ymin:</label>
+<input type = "text" id = "wldYmn" name = "wldYmn">
+
+<label for="wldYmx"> World Ymax:</label>
+<input type = "text" id = "wldYmx" name = "wldYmx">
+<p>
+
+//Build Buttons
+Create the buttons to draw points and update the world coordinates 
+
+<p>
+<! Draw Point Button>
+<button type="button" id = "draw_point" style = "height: 50px; width: 100px"> Draw Point </button>
+<p>
+
+<! Text Area>
+Message Area<br>
+<textarea id = "myTextArea" rows = "5" cols = "40">
+</textarea>
+
+<p>
+<! Update World Button>
+<button type="button" id = "update_Wld" style = "height: 50px; width: 100px"> Update World </button>
+<p>
+
+//Message Area
+Creates a text area that posts messages whenever a button is pressed
